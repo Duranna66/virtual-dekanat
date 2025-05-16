@@ -99,7 +99,7 @@ public class SecurityConfig {
                 .exceptionHandling((ex) -> ex.authenticationEntryPoint(this.authEntryPoint))
                 .logout(out -> out
                         .logoutUrl("/api/v1/auth/logout")
-                        .invalidateHttpSession(true) // Invalidate all sessions after logout
+                        .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .addLogoutHandler(new CustomLogoutHandler(this.redisIndexedSessionRepository))
                         .logoutSuccessHandler((request, response, authentication) ->

@@ -1,0 +1,105 @@
+
+
+
+POST http://localhost:8080/api/v1/auth/signin
+Content-Type: application/json
+
+{
+  "email": "test@test.ru",
+  "password": "123"
+}
+
+
+
+### GET студент по ID
+GET http://localhost:8080/api/v1/student/1
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+###
+
+### PUT обновить данные студента
+PUT http://localhost:8080/api/v1/student/1
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+{
+  "id": 1,
+  "fullName": "Николаев Иван",
+  "group": "ИДБ-22-12",
+  "birthDate": "2002-05-16"
+}
+
+###
+
+### GET расписание по группе
+GET http://localhost:8080/api/v1/schedule/ИДБ-22-12
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+###
+
+### POST сохранить расписание
+POST http://localhost:8080/api/v1/schedule
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+[
+  {
+    "day": "Понедельник",
+    "subject": "Математика",
+    "time": "10:00",
+    "group": "ИДБ-22-12"
+  },
+  {
+    "day": "Вторник",
+    "subject": "Физика",
+    "time": "12:00",
+    "group": "ИДБ-22-12"
+  }
+]
+
+###
+
+### GET оценки студента
+GET http://localhost:8080/api/v1/grades/1
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+###
+
+### POST сохранить оценки
+POST http://localhost:8080/api/v1/grades/1
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+[
+  {
+    "subject": "Математика",
+    "grade": "5"
+  },
+  {
+    "subject": "Физика",
+    "grade": "4"
+  }
+]
+
+###
+
+### POST заявка на документ
+POST http://localhost:8080/api/v1/documents
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky
+
+{
+  "fullName": "Иванов Иван",
+  "docType": "Справка об обучении",
+  "reason": "Нужно для военкомата"
+}
+
+###
+
+### GET заявки по студенту
+GET http://localhost:8080/api/v1/documents/1
+Content-Type: application/json
+Cookie: JSESSIONID=OWE3NzU0ZjMtNWNmZi00YmU4LTk3YTMtMjcxNTk1OTM5Mjky

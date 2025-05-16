@@ -1,0 +1,25 @@
+package ru.dekan.mapper;
+
+import org.springframework.stereotype.Component;
+import ru.dekan.dto.ScheduleRowDto;
+import ru.dekan.entity.ScheduleEntry;
+
+@Component
+public class ScheduleMapper {
+
+    public ScheduleRowDto toDto(ScheduleEntry entity) {
+        ScheduleRowDto dto = new ScheduleRowDto();
+        dto.setDay(entity.getDay());
+        dto.setSubject(entity.getSubject());
+        dto.setTime(entity.getTime());
+        return dto;
+    }
+
+    public ScheduleEntry toEntity(ScheduleRowDto dto) {
+        ScheduleEntry entry = new ScheduleEntry();
+        entry.setDay(dto.getDay());
+        entry.setSubject(dto.getSubject());
+        entry.setTime(dto.getTime());
+        return entry;
+    }
+}
